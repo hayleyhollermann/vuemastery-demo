@@ -7,7 +7,8 @@ var app = new Vue({
     data: {
         product: "Socks",
         image: './greensocks.jpg',
-        inventory: 8,
+        inventory: 5,
+        // inStock: this.checkInventory,
         newItem: true,
         onSale: false,
         details: ["80% cotton, 20% polyester", "Gender-neutral"],
