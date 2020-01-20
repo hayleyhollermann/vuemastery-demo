@@ -29,6 +29,10 @@ var app = new Vue({
     methods: {
         addToCart: function () {
             this.cart +=1 
-        }
+        },
+        // ESX shorthand for functions
+        updateProduct(variantImage) {
+            this.image = variantImage
+        },
     }
 })
