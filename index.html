@@ -12,46 +12,9 @@
 <body>
     <div class="nav-bar"></div>
     <div id="app">
-        <div class="product">
-            <div class="product-image">
-                <!-- 
-                    v-bind dynamically binds an attribute to an expression
-                    attribute is src and expression is "image"
-                    shorthand is written as :src (w/o the "v-bind")
-                -->
-                <img v-bind:src="image">
-            </div>
-            <div class="product-info">
-                <h1>{{title}} <span v-show="onSale">- On Sale!</span></h1>
-                <p>You'll love these {{product}}, they are the best {{product}} around</p>
-                <p>{{inventoryMessage}}</p>
-                <!-- <p v-if="inventory > 10">In Stock</p>
-                <p v-else-if="inventory<= 10 && inventory > 0">Hurry, these {{product}} are almost sold out!!</p>
-                <p v-else>Out of Stock</p> -->
-                <p v-show="newItem">NEW ITEM!!</p>
-                <ul>
-                    <li v-for="detail in details">{{detail}}</li>
-                </ul>
-                <div v-for="(variant, index) in variants" 
-                    :key="variant.variantId"
-                    class="color-box"
-                    :style="{backgroundColor: variant.variantColor}"
-                    @mouseover="updateProduct(index)">
-                    <!-- @ is the shorthand for "v-on:" -->
-                </div>
-                <ul>
-                    <li v-for="size in sizes">{{size}}</li>
-                </ul>
-                <button v-on:click="addToCart" 
-                    :disabled="!inStock"
-                    :class="{disabledButton: !inStock}">
-                    Add to Cart
-                </button>
-                <div class="cart">
-                    <p>Cart: {{cart}}</p>
-                </div>
-            </div>
-        </div>
+        <product></product>
+        <product></product>
+        <product></product>
         <!-- double curly braces are an EXPRESSION -->
     </div>
 </body>
