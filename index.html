@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Product App</title>
 </head>
+
 <body>
+    <div class="nav-bar"></div>
     <div id="app">
+        <div class="product">
+            <div class="product-image">
+                <!-- 
+                    v-bind dynamically binds an attribute to an expression
+                    attribute is src and expression is "image"
+                    shorthand is written as :src (w/o the "v-bind")
+                -->
+                <img v-bind:src="image">
+            </div>
+            <div class="product-info">
+                <h1>{{product}} <span v-show="onSale">- On Sale!</span></h1>
+                <p>You'll love these {{product}}, they are the best {{product}} around</p>
+                <p v-if="inventory > 10">In Stock</p>
+                <p v-else-if="inventory<= 10 && inventory > 0">Hurry, these {{product}} are almost sold out!!</p>
+                <p v-else>Out of Stock</p>
+                <p v-show="newItem">NEW ITEM!!</p>
+                <ul>
+                    <li v-for="detail in details">{{detail}}</li>
+                </ul>
+                <div v-for="variant in variants" :key="variant.variantId">
+                    <p>{{variant.variantColor}}</p>
+                </div>
+                <ul>
+                    <li v-for="size in sizes">{{size}}</li>
+                </ul>
+            </div>
+        </div>
         <!-- double curly braces are an EXPRESSION -->
-        <h1>{{product}}</h1>
-        <p>You'll love these {{product}}, they are the best {{product}} around</p>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="main.js"></script>
+
 </html>
